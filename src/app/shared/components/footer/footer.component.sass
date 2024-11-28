@@ -1,0 +1,55 @@
+footer
+    background: #0a1c3a
+    display: grid
+    row-gap: 2rem
+    padding: 2rem
+
+    .logo
+        margin: 0 auto
+        width: 27.7%
+        img
+            width: 100%
+    .politics
+        display: flex
+        gap: 5rem
+        justify-content: center
+        a
+            color: white
+            position: relative
+            text-decoration: none
+            top: 0
+            transition: top ease 0.33s, color ease 0.33s
+            &:hover
+                color: #7f74a5
+                top: -0.33rem
+
+    .socialNetworks
+        border-bottom: solid white 2px
+        border-radius: 100%
+        display: flex
+        gap: 1rem
+        justify-content: center
+        margin: 0 auto
+        padding: 3rem
+        width: 33%
+        a
+            display: grid
+            justify-content: center
+            align-items: center
+            background: white
+            border-radius: 100%
+            padding: 1rem
+            position: relative
+            top:0
+            transition: top ease 0.33s
+            width: 8%
+
+            &:hover
+                top: -1rem
+
+            img
+                width: 100%
+
+    .copyright
+        .text
+            text-align: center

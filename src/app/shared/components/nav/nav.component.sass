@@ -1,0 +1,19 @@
+nav
+    display: flex
+    justify-content: center
+    width: 100%
+    gap: 1rem
+
+    .active
+        border-bottom: solid white 1px
+
+    a
+        border: solid transparent 1px
+        color: white
+        font-weight: bold
+        padding: 1rem
+        text-decoration: none
+        transition: scale ease 0.33s, color ease 0.33s, border ease 0.33s
+        &:hover
+            scale: 110%
+            color: #7f74a5
