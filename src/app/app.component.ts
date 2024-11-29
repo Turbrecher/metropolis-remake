@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -8,7 +8,7 @@ import { fadeInScaleAnimation } from './shared/animations/fade-in-scale';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NavComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, NavComponent, FooterComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
   animations: [

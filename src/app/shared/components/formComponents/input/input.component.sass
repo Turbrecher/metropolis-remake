@@ -1,0 +1,18 @@
+.formControl
+    display: grid
+    row-gap: 1rem
+    input
+        background: transparent
+        border: solid transparent
+        border-bottom: solid #2d3141 1px
+        color: white
+        padding: 1rem
+        transition: border ease 1s
+        &:focus, &:hover
+            outline: none
+            border-bottom: solid #ffffff 1px
+    
+    .error
+        display: relative
+        color: red
+        transition: display ease 0.5 allow-discrete

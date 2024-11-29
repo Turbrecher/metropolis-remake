@@ -1,1 +1,30 @@
-<p>contact works!</p>
+
+
+<article class="contact">
+    
+    <section class="title">
+        <h1 class="yellow">CONTACTO</h1>
+    </section>
+
+    <section class="form">
+
+        <section>
+            <form [formGroup]="contactForm">
+                <app-input formControlName="name" label="Nombre" inputType="text" [valid]="name.valid||name.pristine" inputPlaceholder="Inserte su nombre"/>
+                <app-input formControlName="surname" label="Apellidos" inputType="text" [valid]="surname.valid||surname.pristine" inputPlaceholder="Inserte su/s apellido/s"/>
+                <app-input formControlName="email" label="Correo Electrónico" inputType="email" [valid]="email.valid||email.pristine" inputPlaceholder="Inserte su email"/>
+                <app-input formControlName="message" label="Mensaje" inputType="text" [valid]="message.valid||message.pristine" inputPlaceholder="Inserte su mensaje"/>
+                <app-button (click)="sendMessage($event)" [valid]="contactForm.valid" buttonValue="Enviar mensaje"/>
+            </form>
+        </section>
+
+        <section class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25400.189254943096!2d-6.9602899027310565!3d37.27086611544028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd11cfe6d744284b%3A0xd82baac110b40f83!2sHuelva!5e0!3m2!1ses!2ses!4v1732876751356!5m2!1ses!2ses" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+
+    </section>
+
+
+    
+</article>
