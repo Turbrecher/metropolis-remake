@@ -1,6 +1,19 @@
 <nav>
+
     <a routerLink="bilboard" routerLinkActive="active">Cartelera</a>
     <a routerLink="products" routerLinkActive="active">Productos</a>
     <a routerLink="contact" routerLinkActive="active">Contacto</a>
-    <a routerLink="">Iniciar sesión</a>
+
+    <a class="iconContainer" (click)="openRegisterModal()">
+        <img src="images/icons/newUser.svg" alt="">
+    </a>
+
+    <a class="iconContainer" (click)="openLoginModal()">
+        <img src="images/icons/login.svg" alt="">
+    </a>
+    
+
+    <app-login-modal close/>
+    <app-register-modal close/>
+
 </nav>

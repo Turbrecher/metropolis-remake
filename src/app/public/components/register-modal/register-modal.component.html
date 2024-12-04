@@ -1,1 +1,22 @@
-<p>register-modal works!</p>
+<dialog class="dialog" #dialog data-modal>
+
+    
+
+
+    <section (click)="closeDialog()" class="close">
+        <img src="images/icons/close.svg" alt="">
+    </section>
+
+    <section class="title yellow">
+        <h1>REGISTRO</h1>
+    </section>
+
+    <form [formGroup]="registerForm">
+        <app-input [valid]="username.valid|| username.pristine" label="Usuario" inputType="text" inputPlaceholder="Inserte su usuario" />
+        <app-input [valid]="password.valid|| password.pristine" label="Contraseña" inputType="password"
+            inputPlaceholder="Inserte su contraseña" />
+
+        <app-button buttonValue="Registrarse" />
+
+    </form>
+</dialog>
