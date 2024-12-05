@@ -14,6 +14,7 @@ export class NavComponent {
 
   @ViewChild(LoginModalComponent) loginDialog!: LoginModalComponent
   @ViewChild(RegisterModalComponent) registerDialog!: RegisterModalComponent
+  isAuthenticated = true
 
 
   openLoginModal() {

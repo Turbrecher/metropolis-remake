@@ -4,13 +4,22 @@
     <a routerLink="products" routerLinkActive="active">Productos</a>
     <a routerLink="contact" routerLinkActive="active">Contacto</a>
 
-    <a class="iconContainer" (click)="openRegisterModal()">
-        <img src="images/icons/newUser.svg" alt="">
-    </a>
 
-    <a class="iconContainer" (click)="openLoginModal()">
-        <img src="images/icons/login.svg" alt="">
-    </a>
+    @if (!isAuthenticated) {
+        <a class="iconContainer" (click)="openRegisterModal()">
+            <img src="images/icons/newUser.svg" alt="">
+        </a>
+    
+        <a class="iconContainer" (click)="openLoginModal()">
+            <img src="images/icons/login.svg" alt="">
+        </a>
+    }@else {
+        <a routerLink="profile" class="iconContainer">
+            <img src="images/icons/profile.svg" alt="">
+        </a>
+    }
+
+    
     
 
     <app-login-modal close/>

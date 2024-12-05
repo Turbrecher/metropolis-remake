@@ -4,6 +4,7 @@ import { BilboardComponent } from './pages/bilboard/bilboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { MovieViewComponent } from './pages/movie-view/movie-view.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent
+  },
+
+  {
+    path: "profile",
+    component: ProfileComponent
   },
 ];
 
