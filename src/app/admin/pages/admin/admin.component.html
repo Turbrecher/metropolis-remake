@@ -1,0 +1,32 @@
+<article class="admin">
+
+    <nav>
+
+        <section class="lists">
+            <div class="img">
+                <img src="images/icons/list.svg" alt="">
+            </div>
+            <a routerLinkActive="active" routerLink="movies">Películas</a>
+            <a routerLinkActive="active" routerLink="products">Productos</a>
+            <a routerLinkActive="active" routerLink="sessions">Sesiones</a>
+            <a routerLinkActive="active" routerLink="tickets">Entradas</a>
+            <a routerLinkActive="active" routerLink="users">Usuarios</a>
+        </section>
+
+        <section class="creation">
+            <div class="img">
+                <img src="images/icons/create.svg" alt="">
+            </div>
+            <a routerLink="movies/create" routerLinkActive="active">Película</a>
+            <a routerLinkActive="active" routerLink="products/create">Producto</a>
+            <a routerLinkActive="active" routerLink="sessions/create">Sesión</a>
+            <a routerLinkActive="active" routerLink="tickets/create">Entrada</a>
+            <a routerLinkActive="active" routerLink="users/create">Usuario</a>
+        </section>
+    </nav>
+
+    <section >
+        <router-outlet></router-outlet>
+    </section>
+
+</article>

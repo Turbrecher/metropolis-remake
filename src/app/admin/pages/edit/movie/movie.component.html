@@ -1,0 +1,42 @@
+<article class="movieEdit">
+    <section class="title">
+        <h1 class="yellow">EDITAR PELÍCULA</h1>
+    </section>
+
+    <section class="form">
+
+        <form enctype="multipart/form-data" [formGroup]="editMovieForm">
+
+            <app-input [valid]="title.valid|| title.pristine" label="Título" inputType="text"
+                inputPlaceholder="Inserte el título" formControlName="title"/>
+
+            <app-input [valid]="synopsis.valid|| synopsis.pristine" label="Sinopsis" inputType="text"
+                inputPlaceholder="Inserte la sinopsis" formControlName="synopsis"/>
+
+            <app-input [valid]="actors.valid|| actors.pristine" label="Actores" inputType="text"
+                inputPlaceholder="Inserte los actoress" formControlName="actors"/>
+
+            <app-input [valid]="directors.valid|| directors.pristine" label="Director/es" inputType="text"
+                inputPlaceholder="Inserte el director o directores" formControlName="directors"/>
+
+            <app-input [valid]="duration.valid|| duration.pristine" label="Duración" inputType="number"
+                inputPlaceholder="Inserte la duración" formControlName="duration"/>
+
+            <app-input [valid]="releaseDate.valid|| releaseDate.pristine" label="Fecha de salida" inputType="text"
+                inputPlaceholder="Inserte la fecha de estreno" formControlName="releaseDate"/>
+
+            <app-input [valid]="genres.valid|| genres.pristine" label="Géneros" inputType="text"
+                inputPlaceholder="Inserte el género o géneros" formControlName="genres"/>
+
+            <app-input [valid]="pegi.valid|| pegi.pristine" label="Clasificación de edad" inputType="text"
+                inputPlaceholder="Inserte la clasificación por edad (+3, +7, etc)" formControlName="pegi"/>
+
+                <app-input [valid]="portrait.valid|| portrait.pristine" label="Portada" inputType="file"
+                inputPlaceholder="Inserte la portada" formControlName="portrait"/>
+
+            <app-button buttonValue="Editar película" />
+
+        </form>
+
+    </section>
+</article>

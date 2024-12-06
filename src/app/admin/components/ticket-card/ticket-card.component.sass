@@ -1,0 +1,21 @@
+.ticket
+    background: #0a1c3a
+    display: grid
+    grid-template-columns: 20% 80%
+    padding: 1rem
+    gap: 1rem
+    transition: box-shadow ease 0.2s
+
+    &:hover
+        box-shadow: 1px 1px 10px #ffdd0e
+
+    .photo
+        width: 100%
+        img
+            width: 100%
+    .info
+        display: grid
+        .title
+            font-size: 1.66rem
+        .datetime, .seat
+            font-size: 1.2rem

@@ -1,0 +1,21 @@
+<article class="userEdit">
+
+    <section class="title">
+        <h1 class="yellow">EDITAR USUARIO</h1>
+    </section>
+
+
+    <section class="form">
+        <form [formGroup]="userEditForm">
+            <app-input formControlName="name" label="Nombre" inputType="text" [valid]="name.valid||name.pristine" inputPlaceholder="Inserte su nombre"/>
+            <app-input formControlName="surname" label="Apellidos" inputType="text" [valid]="surname.valid||surname.pristine" inputPlaceholder="Inserte su/s apellido/s"/>
+            <app-input formControlName="username" label="Usuario" inputType="text" [valid]="username.valid||username.pristine" inputPlaceholder="Inserte su nombre de usuario"/>
+            <app-input formControlName="email" label="Correo Electrónico" inputType="email" [valid]="email.valid||email.pristine" inputPlaceholder="Inserte su email"/>
+            <app-input formControlName="password" label="Contraseña" inputType="password" [valid]="password.valid||password.pristine" inputPlaceholder="Inserte su contraseña"/>
+    
+            <app-button (click)="createUser($event)" [valid]="userEditForm.valid" buttonValue="Editar usuario"/>
+        </form>
+    </section>
+
+    
+</article>

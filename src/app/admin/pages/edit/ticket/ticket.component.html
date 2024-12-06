@@ -1,0 +1,24 @@
+<article class="ticketEdit">
+    <section class="title">
+        <h1 class="yellow">EDITAR ENTRADA</h1>
+    </section>
+
+    <section class="form">
+
+        <form enctype="multipart/form-data" [formGroup]="editTicketForm">
+
+            <app-input [valid]="session.valid|| session.pristine" label="Sesión" inputType="text"
+                inputPlaceholder="Inserte el nombre" formControlName="session"/>
+
+            <app-input [valid]="user.valid|| user.pristine" label="Usuario" inputType="text"
+                inputPlaceholder="Inserte la descripción" formControlName="user"/>
+
+            <app-input [valid]="date.valid|| date.pristine" label="Fecha" inputType="date"
+                inputPlaceholder="Inserte el precio" formControlName="date"/>
+
+            <app-button buttonValue="Editar entrada" />
+
+        </form>
+
+    </section>
+</article>

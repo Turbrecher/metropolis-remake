@@ -14,8 +14,15 @@
             <img src="images/icons/login.svg" alt="">
         </a>
     }@else {
-        <a routerLink="profile" class="iconContainer">
+        <a routerLinkActive="active" routerLink="profile" class="iconContainer">
             <img src="images/icons/profile.svg" alt="">
+        </a>
+    }
+
+
+    @if(isAdmin){
+        <a routerLinkActive="active" routerLink="admin" class="iconContainer">
+            <img src="images/icons/admin.svg" alt="">
         </a>
     }
 

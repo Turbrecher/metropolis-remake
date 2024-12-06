@@ -1,0 +1,23 @@
+.session
+    row-gap: 0.33rem
+    display: grid
+    aspect-ratio: 3/1
+    background: #0a1c3a
+    border-bottom-right-radius: 10%
+    padding: 1rem
+    transition: box-shadow ease 0.2s
+    grid-template-rows: repeat(3,auto)
+
+    .photo
+        width: 100%
+        img
+            object-fit: cover
+            aspect-ratio: 1/1
+            width: 100%
+
+    .hour
+        font-size: 1.3rem
+        font-weight: bold
+
+    &:hover
+        box-shadow: 1px 1px 10px #ffdd0e

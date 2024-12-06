@@ -1,0 +1,26 @@
+.movie
+    background: #0a1c3a
+    padding: 1rem
+    display: grid
+    row-gap: 1rem
+    transition: box-shadow ease 0.2s
+    .info
+        .title
+            padding: 1rem
+            background: #ffdd0e
+            color: #0a1c3a
+            font-size: 2rem
+            text-align: center
+    .photo
+        width: 100%
+        overflow: hidden
+        img
+            aspect-ratio: 2/3
+            width: 100%
+            object-fit: fill
+            transition: scale ease 0.5s
+            
+            &:hover
+                scale: 110%
+    &:hover
+        box-shadow: 1px 1px 10px #ffdd0e

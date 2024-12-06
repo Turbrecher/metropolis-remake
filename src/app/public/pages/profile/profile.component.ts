@@ -3,11 +3,12 @@ import { InputComponent } from "../../../shared/components/formComponents/input/
 import { ButtonComponent } from "../../../shared/components/formComponents/button/button.component";
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Scroll } from '../../../shared/Utilities/Scroll';
+import { TicketComponent } from "../../components/ticket/ticket.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [InputComponent, ButtonComponent, FormsModule, ReactiveFormsModule, TicketComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.sass'
 })

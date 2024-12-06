@@ -1,0 +1,27 @@
+<article class="productEdit">
+    <section class="title">
+        <h1 class="yellow">EDITAR PRODUCTO</h1>
+    </section>
+
+    <section class="form">
+
+        <form enctype="multipart/form-data" [formGroup]="editProductForm">
+
+            <app-input [valid]="name.valid|| name.pristine" label="Nombre" inputType="text"
+                inputPlaceholder="Inserte el nombre" formControlName="name"/>
+
+            <app-input [valid]="description.valid|| description.pristine" label="Descripción" inputType="text"
+                inputPlaceholder="Inserte la descripción" formControlName="description"/>
+
+            <app-input [valid]="price.valid|| price.pristine" label="Precio" inputType="number"
+                inputPlaceholder="Inserte el precio" formControlName="price"/>
+
+            <app-input [valid]="photo.valid|| photo.pristine" label="Foto" inputType="file"
+                inputPlaceholder="Inserte la foto" formControlName="photo"/>
+
+            <app-button buttonValue="Editar producto" />
+
+        </form>
+
+    </section>
+</article>

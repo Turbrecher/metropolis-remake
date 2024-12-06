@@ -1,0 +1,24 @@
+<article class="sessionCreate">
+    <section class="title">
+        <h1 class="yellow">CREAR SESIÓN</h1>
+    </section>
+
+    <section class="form">
+
+        <form enctype="multipart/form-data" [formGroup]="createSessionForm">
+
+            <app-input [valid]="movie.valid|| movie.pristine" label="Película" inputType="text"
+                inputPlaceholder="Inserte el nombre" formControlName="movie"/>
+
+            <app-input [valid]="time.valid|| time.pristine" label="Hora" inputType="time"
+                inputPlaceholder="Inserte la descripción" formControlName="time"/>
+
+            <app-input [valid]="room.valid|| room.pristine" label="Precio" inputType="number"
+                inputPlaceholder="Inserte el precio" formControlName="room"/>
+
+            <app-button buttonValue="Crear sesión" />
+
+        </form>
+
+    </section>
+</article>

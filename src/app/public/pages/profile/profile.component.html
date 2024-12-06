@@ -13,7 +13,23 @@
             <app-input formControlName="email" label="Correo Electrónico" inputType="email" [valid]="email.valid||email.pristine" inputPlaceholder="Inserte su email"/>
             <app-input formControlName="password" label="Contraseña" inputType="password" [valid]="password.valid||password.pristine" inputPlaceholder="Inserte su contraseña"/>
     
-            <app-button (click)="editProfile($event)" [valid]="profileForm.valid" buttonValue="Enviar mensaje"/>
+            <app-button (click)="editProfile($event)" [valid]="profileForm.valid" buttonValue="Editar perfil"/>
         </form>
     </section>
+
+
+    <section class="title">
+        <h1 class="yellow">TUS ENTRADAS</h1>
+    </section>
+
+    <section class="tickets">
+        @let tickets = [1,2,3,4,5,6,7];
+
+        @for (ticket of tickets; track $index) {
+            <app-ticket/>
+        }
+
+    </section>
+
+    
 </article>
