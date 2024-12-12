@@ -4,6 +4,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { fadeInScaleAnimation } from './shared/animations/fade-in-scale';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 @Component({
   selector: 'app-root',

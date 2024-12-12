@@ -1,8 +1,9 @@
 <article class="ticketList">
-    @let tickets = [1,2,3,4,5,6,7,8];
     @for (ticket of tickets; track $index) {
-        <a routerLink="edit/1">
-            <app-ticket-card></app-ticket-card>
-        </a>
+    <a routerLink="edit/{{ticket.id}}">
+        <app-ticket-card portrait="{{ticket.movie_session?.movie?.portrait}}"
+            movieTitle="{{ticket.movie_session?.movie?.title}}" time="{{ticket.movie_session?.time}}"
+            date="{{ticket.date}}" row="{{ticket.seat?.row}}" col="{{ticket.seat?.col}}"></app-ticket-card>
+    </a>
     }
 </article>

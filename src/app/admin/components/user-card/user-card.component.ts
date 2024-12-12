@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Url } from '../../../shared/Utilities/Url';
 
 @Component({
   selector: 'app-user-card',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './user-card.component.sass'
 })
 export class UserCardComponent {
+
+  @Input() name !: string
+  @Input() photo !: string
+  userImageApi : string = Url.userImageApi
 
 }
