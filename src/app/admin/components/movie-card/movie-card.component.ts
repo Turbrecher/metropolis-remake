@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Url } from '../../../shared/Utilities/Url';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class MovieCardComponent {
 
+  @Input() portrait!: string
+  @Input() title!: string
+  portraitApi: string = Url.portraitApi
 }

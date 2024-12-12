@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputComponent } from '../../../shared/components/formComponents/input/input.component';
 import { ButtonComponent } from '../../../shared/components/formComponents/button/button.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register-modal',
@@ -14,31 +15,55 @@ export class RegisterModalComponent {
 
 
   registerForm: FormGroup = this.fb.group({
-    "username": ["", [Validators.required]],
+    "email": ["", [Validators.required]],
     "password": ["", [Validators.required]],
   })
 
-  constructor(private fb: FormBuilder) {
+  serverError: string = ""
+
+  constructor(private fb: FormBuilder, private authService: AuthService) {
 
   }
+
+  register(event: Event) {
+    event.preventDefault()
+
+    let registerData = new FormData()
+
+    registerData.append('email', this.email.value)
+    registerData.append('password', this.password.value)
+    registerData.append('_method', 'POST')
+
+
+    this.authService.register(registerData).subscribe({
+      next: (response) => {
+        location.reload()
+      },
+      error: (error) => {
+        this.serverError = "Ha ocurrido un problema en el servidor. Esto puede deberse a que su email ya existe en nuestra base de datos."
+      }
+    })
+
+
+  }
+
+
 
   @ViewChild('dialog') dialog!: ElementRef;
 
-  openDialog(){
+  openDialog() {
     this.dialog.nativeElement.showModal()
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialog.nativeElement.close()
   }
 
-
-
-  get username() {
-    return this.registerForm.get('username') as FormControl
+  get email() {
+    return this.registerForm.get('email') as FormControl
   }
 
   get password() {
-    return this.registerForm.get('username') as FormControl
+    return this.registerForm.get('password') as FormControl
   }
 }

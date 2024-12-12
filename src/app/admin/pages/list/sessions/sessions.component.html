@@ -1,8 +1,8 @@
 <article class="sessionList">
-    @let sessions = [1,2,3,4,5,6,7,8];
-    @for (session of sessions; track $index) {
-        <a routerLink="edit/1">
-            <app-session-card></app-session-card>
+
+    @for (session of movieSessions; track $index) {
+        <a routerLink="edit/{{session.id}}">
+            <app-session-card portrait="{{session.movie?.portrait}}" time="{{session.time}}" room="{{session.room?.name}}"></app-session-card>
         </a>
     }
 </article>

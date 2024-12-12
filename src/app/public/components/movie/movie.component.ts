@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Url } from '../../../shared/Utilities/Url';
 
 @Component({
   selector: 'app-movie',
@@ -10,4 +11,5 @@ import { Component, Input } from '@angular/core';
 export class MovieComponent {
   @Input() title: string = "Metropolis"
   @Input() portrait: string = "images/carteles/cartel_metropolis.jpg"
+  portraitApi = Url.portraitApi
 }

@@ -5,12 +5,17 @@
     row-gap: 1rem
     transition: box-shadow ease 0.2s
     .info
+        height: 7rem
+        overflow: hidden
         .title
+            height: 7rem
+            overflow: hidden
             padding: 1rem
             background: #ffdd0e
             color: #0a1c3a
             font-size: 2rem
             text-align: center
+            word-break: break-all
     .photo
         width: 100%
         overflow: hidden
@@ -19,7 +24,7 @@
             width: 100%
             object-fit: fill
             transition: scale ease 0.5s
-            
+
             &:hover
                 scale: 110%
     &:hover

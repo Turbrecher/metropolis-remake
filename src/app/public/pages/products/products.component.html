@@ -4,10 +4,9 @@
         <h1>PRODUCTOS</h1>
     </section>
 
-    @let products = [1,2,3,4,5,6,7,8,9,10,11,12];
     <section class="products">
-        @for (products of products; track $index) {
-            <app-product/>
+        @for (product of products; track $index) {
+            <app-product photo="{{product.photo}}" title="{{product.name}}" description="{{product.description}}" price="{{product.price}}"/>
         }
     </section>
 

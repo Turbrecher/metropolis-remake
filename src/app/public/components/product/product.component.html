@@ -1,4 +1,4 @@
-<article class="product">
+<!-- <article class="product">
 
     <section class="title_description">
         <h1>{{title}}</h1>
@@ -7,13 +7,25 @@
     </section>
 
     <section class="portrait">
-        <img src="{{portrait}}" alt="{{title}}'s' portrait image">
+        <img src="{{productImageUrl}}{{photo}}" alt="{{title}}'s' portrait image">
     </section>
 
     <section class="price">
         <h1>{{price}}</h1>
     </section>
 
-    
 
+
+</article> -->
+
+
+
+<article class="product">
+    <section class="photo">
+        <img src="{{productImageUrl}}{{photo}}" alt="">
+    </section>
+
+    <section class="info">
+        <h1 class="title">{{title}}</h1>
+    </section>
 </article>

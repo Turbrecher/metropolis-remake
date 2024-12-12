@@ -8,33 +8,29 @@
 
 
         <article class="portrait">
-            <img src="images/carteles/cartel_metropolis.jpg" alt="">
+            <img src="{{portraitApi}}{{movie.portrait}}" alt="">
         </article>
 
 
         <article class="mainInfo">
 
             <section class="title">
-                <h1>METRÓPOLIS</h1>
+                <h1>{{movie.title}}</h1>
             </section>
 
             <section class="directors">
                 <h2>Director/es</h2>
-                <p>Hanna Montana</p>
+                <p>{{movie.directors}}</p>
             </section>
 
             <section class="actor">
                 <h2>Actores</h2>
-                <p>Hanna Montana, Freddie Mercury, Jack Black, Tom Hanks</p>
+                <p>{{movie.actors}}</p>
             </section>
 
             <section class="synopsis">
                 <h2>Sinopsis</h2>
-                <p>
-                    La ciudad de Metrópolis se divide en dos: por un lado están los trabajadores, que viven en la pobreza
-                    y son explotados por máquinas. Por el otro están los políticos, que disfrutan de un jardín idílico.
-                    Una historia de amor surge entre los dos extremos de la ciudad.
-                </p>
+                <p>{{movie.synopsis}}</p>
             </section>
 
 
@@ -44,31 +40,30 @@
         <article class="extraInfo">
             <section class="duration">
                 <h2>Duración</h2>
-                <p>85 minutos</p>
+                <p>{{movie.duration}} minutos</p>
             </section>
 
             <section class="releaseDate">
                 <h2>Fecha de estreno</h2>
-                <p>2024-05-14</p>
+                <p>{{movie.releaseDate}}</p>
             </section>
 
             <section class="genres">
                 <h2>Géneros</h2>
-                <p>Acción, Aventura, Fantasía</p>
+                <p>{{movie.genres}}</p>
             </section>
 
             <section class="pegi">
                 <h2>Clasificación</h2>
-                <p>+7</p>
+                <p>{{movie.pegi}}</p>
             </section>
         </article>
 
     </section>
 
-    @let tickets = [1,2,3,4,5,6,7];
-    <section class="tickets">
-        @for (ticket of tickets; track $index) {
-            <app-ticket/>
+    <section class="movieSessions">
+        @for (movieSession of movieSessions; track $index) {
+        <app-movie-session hour="{{movieSession.time}}" room="{{movieSession.room?.name}}" />
         }
 
     </section>

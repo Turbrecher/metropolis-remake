@@ -13,18 +13,31 @@
         <a class="iconContainer" (click)="openLoginModal()">
             <img src="images/icons/login.svg" alt="">
         </a>
+
+        
+
+
     }@else {
         <a routerLinkActive="active" routerLink="profile" class="iconContainer">
             <img src="images/icons/profile.svg" alt="">
         </a>
-    }
 
 
-    @if(isAdmin){
-        <a routerLinkActive="active" routerLink="admin" class="iconContainer">
-            <img src="images/icons/admin.svg" alt="">
+        @if(isAdmin){
+            <a routerLinkActive="active" routerLink="admin" class="iconContainer">
+                <img src="images/icons/admin.svg" alt="">
+            </a>
+        }
+
+        <a (click)="logout()" class="iconContainer">
+            <img src="images/icons/logout.svg" alt="">
         </a>
     }
+
+
+   
+
+    
 
     
     

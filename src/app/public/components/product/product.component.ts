@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Url } from '../../../shared/Utilities/Url';
 
 @Component({
   selector: 'app-product',
@@ -9,8 +10,15 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductComponent {
 
-  @Input() title : string = "DIARIO"
-  @Input() description : string = "¡LUNES, MARTES Y JUEVES!"
-  @Input() portrait : string = "images/productos/palomitas.webp"
-  @Input() price : string = "5.99 €"
+  @Input() title !: string
+  @Input() description !: string
+  @Input() photo !: string
+  @Input() price !: string
+  productImageUrl!: string
+
+
+  ngOnInit(){
+    this.productImageUrl = Url.productImageApi
+  }
+
 }

@@ -10,11 +10,13 @@
 
     <form [formGroup]="loginForm">
 
-        <app-input [valid]="username.valid|| username.pristine" label="Usuario" inputType="text" inputPlaceholder="Inserte su usuario" />
-        <app-input [valid]="password.valid|| password.pristine" label="Contraseña" inputType="password"
+        <app-input formControlName="email" [valid]="email.valid|| email.pristine" label="Correo electrónico" inputType="text" inputPlaceholder="Inserte su usuario" />
+        <app-input formControlName="password" [valid]="password.valid|| password.pristine" label="Contraseña" inputType="password"
             inputPlaceholder="Inserte su contraseña" />
 
-        <app-button buttonValue="Iniciar Sesión" />
+        <app-button (click)="login($event)" buttonValue="Iniciar Sesión" />
+
+        <label class="serverError">{{serverError}}</label>
 
     </form>
 </dialog>

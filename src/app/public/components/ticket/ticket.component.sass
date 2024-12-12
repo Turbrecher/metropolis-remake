@@ -1,16 +1,25 @@
 .ticket
-    row-gap: 0.33rem
+    background: #0a1c3a
     display: grid
-    aspect-ratio: 3/1
-    background: #202d3d
-    border: solid white 1px
-    border-bottom-right-radius: 10%
-    padding: 2rem
+    grid-template-columns: 20% 80%
+    padding: 1rem
+    gap: 1rem
     transition: box-shadow ease 0.2s
-
-    .hour
-        font-size: 1.3rem
-        font-weight: bold
 
     &:hover
         box-shadow: 1px 1px 10px #ffdd0e
+
+    .photo
+        width: 100%
+        img
+            width: 100%
+    .info
+        display: grid
+        .title
+            height: 2rem
+            overflow: hidden
+            font-size: 1.66rem
+        .datetime, .seat
+            height: 2rem
+            overflow: hidden
+            font-size: 1.2rem
