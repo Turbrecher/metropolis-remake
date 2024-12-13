@@ -13,7 +13,8 @@
             <app-input formControlName="email" label="Correo Electrónico" inputType="email" [valid]="email.valid||email.pristine" inputPlaceholder="Inserte su email"/>
             <app-input formControlName="password" label="Contraseña" inputType="password" [valid]="password.valid||password.pristine" inputPlaceholder="Inserte su contraseña"/>
     
-            <app-button (click)="createUser($event)" [valid]="userEditForm.valid" buttonValue="Editar usuario"/>
+            <app-button (click)="editUser($event)" [valid]="userEditForm.valid" buttonValue="Editar usuario"/>
+            <app-button #deleteButton (click)="deleteUser($event)" extraClass="delete" (click)="deleteUser($event)" buttonValue="Eliminar usuario"/>
         </form>
     </section>
 

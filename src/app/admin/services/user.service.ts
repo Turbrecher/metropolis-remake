@@ -19,4 +19,32 @@ export class UserService {
 
     return this.http.get<Array<User>>(Url.api + 'users', { headers })
   }
+
+  getUser(id: number) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.get<User>(Url.api + 'users/' + id, { headers })
+  }
+
+  createUser(userData: FormData) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.post<any>(Url.api + 'users', userData, { headers })
+  }
+
+  editUser(id: number, userData: FormData) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.post<any>(Url.api + 'users/' + id, userData, { headers })
+  }
+
+  deleteUser(id: number) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.delete<any>(Url.api + 'users/' + id, { headers })
+  }
 }

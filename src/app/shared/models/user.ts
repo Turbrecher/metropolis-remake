@@ -1,3 +1,4 @@
+import { Role } from "./role";
 import { Ticket } from "./ticket";
 
 export interface User {
@@ -7,5 +8,6 @@ export interface User {
     username: string,
     email: string,
     photo: string,
-    tickets:Array<Ticket>
+    tickets:Array<Ticket>,
+    roles: Array<Role>
 }

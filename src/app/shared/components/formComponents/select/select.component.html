@@ -1,0 +1,11 @@
+<article class="formControl">
+    <label>{{label}}</label>
+    <select [(ngModel)]="input" (ngModelChange)="onChange($event)">
+        @for (option of options; track $index) {
+            <option value="{{option.id}}">{{option.name}}</option>
+        }
+    </select>
+    @if(!valid){
+        <label class="error">La información de este campo no es válida.</label>
+    }
+</article>
