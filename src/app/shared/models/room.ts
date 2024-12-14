@@ -1,7 +1,7 @@
 import { Seat } from "./seat";
 
 export interface Room {
-    id?:string,
+    id?:number,
     name?: string,
     rows?:number,
     cols?:number,

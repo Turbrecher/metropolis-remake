@@ -12,7 +12,7 @@ import { SelectOption } from '../../../models/select-option';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: InputComponent,
+      useExisting: SelectComponent,
       multi: true,
     },
   ]

@@ -2,7 +2,7 @@ import { Role } from "./role";
 import { Ticket } from "./ticket";
 
 export interface User {
-    id?:string,
+    id?:number,
     name: string,
     surname: string,
     username: string,

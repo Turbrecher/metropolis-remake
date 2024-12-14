@@ -7,16 +7,20 @@
 
         <form enctype="multipart/form-data" [formGroup]="editTicketForm">
 
-            <app-input [valid]="session.valid|| session.pristine" label="Sesión" inputType="text"
-                inputPlaceholder="Inserte el nombre" formControlName="session"/>
+            <app-select formControlName="session" [valid]="session.valid|| session.pristine" label="Sesión"
+                [options]="sessionOptions" />
 
-            <app-input [valid]="user.valid|| user.pristine" label="Usuario" inputType="text"
-                inputPlaceholder="Inserte la descripción" formControlName="user"/>
+            <app-select formControlName="seat" [valid]="seat.valid|| seat.pristine" label="Sillón"
+                [options]="seatOptions" />
+
+            <app-select [valid]="user.valid|| user.pristine" label="Usuario" formControlName="user"
+                [options]="userOptions" />
 
             <app-input [valid]="date.valid|| date.pristine" label="Fecha" inputType="date"
-                inputPlaceholder="Inserte el precio" formControlName="date"/>
+                inputPlaceholder="Inserte el precio" formControlName="date" />
 
-            <app-button buttonValue="Editar entrada" />
+            <app-button (click)="editTicket($event)" [valid]="editTicketForm.valid" buttonValue="Editar entrada" />
+            <app-button extraClass="delete" (click)="deleteTicket($event)" buttonValue="Eliminar entrada" />
 
         </form>
 

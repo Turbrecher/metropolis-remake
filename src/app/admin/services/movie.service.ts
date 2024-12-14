@@ -24,7 +24,7 @@ export class MovieService {
   createMovie(movieData: FormData) {
     let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
 
-    return this.http.post<any>(Url.api + 'movies/', movieData, { headers })
+    return this.http.post<any>(Url.api + 'movies', movieData, { headers })
   }
 
 

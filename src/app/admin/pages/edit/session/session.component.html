@@ -7,16 +7,16 @@
 
         <form enctype="multipart/form-data" [formGroup]="editSessionForm">
 
-            <app-input [valid]="movie.valid|| movie.pristine" label="Película" inputType="text"
-                inputPlaceholder="Inserte el nombre" formControlName="movie"/>
+            <app-select formControlName="movie" [valid]="movie.valid|| movie.pristine" label="Película"
+                [options]="movieOptions" />
+            <app-select [valid]="room.valid|| room.pristine" label="Sala" formControlName="room"
+                [options]="roomOptions" />
 
             <app-input [valid]="time.valid|| time.pristine" label="Hora" inputType="time"
-                inputPlaceholder="Inserte la descripción" formControlName="time"/>
+                inputPlaceholder="Inserte la descripción" formControlName="time" />
 
-            <app-input [valid]="room.valid|| room.pristine" label="Precio" inputType="number"
-                inputPlaceholder="Inserte el precio" formControlName="room"/>
-
-            <app-button buttonValue="Editar sesión" />
+            <app-button (click)="editSession($event)" [valid]="editSessionForm.valid" buttonValue="Editar sesión" />
+            <app-button extraClass="delete" (click)="deleteSession($event)"  buttonValue="Eliminar sesión" />
 
         </form>
 

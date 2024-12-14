@@ -19,4 +19,33 @@ export class TicketService {
     return this.http.get<Array<Ticket>>(Url.api + 'tickets', { headers })
   }
 
+  getTicket(id: number) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.get<Ticket>(Url.api + 'tickets/' + id, { headers })
+  }
+
+  createTicket(ticketData: FormData) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.post<any>(Url.api + 'tickets', ticketData, { headers })
+  }
+
+
+  editTicket(ticketData: FormData, id: number) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.post<any>(Url.api + 'tickets/' + id, ticketData, { headers })
+  }
+
+  deleteTicket(id: number) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get('token') }
+
+
+    return this.http.delete<any>(Url.api + 'tickets/' + id, { headers })
+  }
+
 }
