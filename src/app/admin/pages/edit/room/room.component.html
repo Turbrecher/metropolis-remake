@@ -1,1 +1,60 @@
-<p>room works!</p>
+<article class="roomEdit">
+    <section class="title">
+        <h1 class="yellow">EDITAR SALA</h1>
+    </section>
+
+
+    <section class="form">
+
+        <form enctype="multipart/form-data" [formGroup]="editRoomForm">
+
+            <app-input [valid]="name.valid|| name.pristine" label="Nombre" inputType="text"
+                inputPlaceholder="Inserte el nombre" formControlName="name" />
+
+            <app-input [valid]="rows.valid|| rows.pristine" label="Filas" inputType="number"
+                inputPlaceholder="Inserte el número de filas" formControlName="rows" />
+
+            <app-input [valid]="cols.valid|| cols.pristine" label="Columnas" inputType="number"
+                inputPlaceholder="Inserte el número de columnas" formControlName="cols" />
+
+            <app-button (click)="editRoom($event)" [valid]="editRoomForm.valid" buttonValue="Editar sala" />
+
+        </form>
+
+    </section>
+
+
+    <article class="seats">
+        <h2 class="yellow">Sillones</h2>
+
+
+
+        <!-- Seat graphics -->
+        <section class="graphics">
+            @for (row of seatingRows; track $index) {
+            <div class="row">
+                @for (col of seatingCols; track $index) {
+                <div class="seat"></div>
+                }
+            </div>
+            }
+        </section>
+
+
+        <!-- Color legend -->
+        <section class="legend">
+
+            <article class="seat">
+                <div class="greenBox"></div>
+                <h2>Seat</h2>
+            </article>
+
+            <article class="corridor">
+                <div class="blueBox"></div>
+                <h2>Corridor</h2>
+            </article>
+
+        </section>
+    </article>
+
+</article>

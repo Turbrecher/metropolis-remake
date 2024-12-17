@@ -16,4 +16,21 @@ export class RoomService {
   getRooms() {
     return this.http.get<Array<Room>>(Url.api + 'rooms')
   }
+
+  getRoom(id?: number) {
+    return this.http.get<Room>(Url.api + 'rooms/' + id)
+  }
+
+  createRoom(formData: FormData) {
+    let headers = { 'Authorization': 'Bearer ' + this.cookieService.get('token') }
+
+    return this.http.post<any>(Url.api + 'rooms', formData, { headers })
+  }
+
+
+  editRoom(formData: FormData, id: number) {
+    let headers = { 'Authorization': 'Bearer ' + this.cookieService.get('token') }
+
+    return this.http.post<any>(Url.api + 'rooms/' + id, formData, { headers })
+  }
 }

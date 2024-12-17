@@ -15,6 +15,7 @@ import { ProductComponent as CreateProductComponent } from './pages/create/produ
 import { SessionComponent as CreateSessionComponent } from './pages/create/session/session.component';
 import { TicketComponent as CreateTicketComponent } from './pages/create/ticket/ticket.component';
 import { UserComponent as CreateUserComponent } from './pages/create/user/user.component';
+import { RoomComponent as CreateRoomComponent } from './pages/create/room/room.component';
 
 //edit
 import { MovieComponent as EditMovieComponent } from './pages/edit/movie/movie.component';
@@ -22,9 +23,11 @@ import { ProductComponent as EditProductComponent } from './pages/edit/product/p
 import { SessionComponent as EditSessionComponent } from './pages/edit/session/session.component';
 import { TicketComponent as EditTicketComponent } from './pages/edit/ticket/ticket.component';
 import { UserComponent as EditUserComponent } from './pages/edit/user/user.component';
+import { RoomComponent as EditRoomComponent } from './pages/edit/room/room.component';
 
 
 import { animation } from '@angular/animations';
+import { RoomsComponent } from './pages/list/rooms/rooms.component';
 
 const routes: Routes = [
   {
@@ -58,6 +61,11 @@ const routes: Routes = [
         component: UsersComponent
       },
 
+      {
+        path: "rooms",
+        component: RoomsComponent
+      },
+
 
       //CREATING DATA
 
@@ -86,6 +94,11 @@ const routes: Routes = [
         component: CreateUserComponent
       },
 
+      {
+        path: "rooms/create",
+        component: CreateRoomComponent
+      },
+
 
       //EDITING DATA
 
@@ -112,6 +125,11 @@ const routes: Routes = [
       {
         path: "users/edit/:id",
         component: EditUserComponent
+      },
+
+      {
+        path: "rooms/edit/:id",
+        component: EditRoomComponent
       },
 
     ]

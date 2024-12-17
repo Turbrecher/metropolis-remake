@@ -1,1 +1,8 @@
-<p>rooms works!</p>
+<article class="roomList">
+
+    @for (room of rooms; track $index) {
+    <a routerLink="edit/{{room.id}}">
+        <app-room-card name="{{room.name}}" rows="{{room.rows}}" cols="{{room.cols}}"/>
+    </a>
+    }
+</article>
