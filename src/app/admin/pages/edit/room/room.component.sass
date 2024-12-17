@@ -1,5 +1,5 @@
 .roomEdit
-    width: 60%
+    width: 80%
     margin: 0 auto
     display: grid
     row-gap: 2rem
@@ -7,6 +7,8 @@
         font-size: 3rem
         text-align: center
     .form
+        width: 80%
+        margin: 0 auto
         form
             display: grid
             row-gap: 2rem
@@ -15,7 +17,7 @@
 
     .seats
         h2
-            font-size: 2rem
+            font-size: 2.5rem
             text-align: center
             margin-bottom: 2rem
 
@@ -26,7 +28,7 @@
             gap: 2rem
             justify-content: center
             margin: 2rem 0
-            .seat
+            .typeseat
                 display: grid
                 justify-content: center
                 .greenBox
@@ -34,7 +36,7 @@
                     aspect-ratio: 1/1
                     background: #4BB543
                     width: 4rem
-            .corridor
+            .typecorridor
                 display: grid
                 justify-content: center
                 .blueBox
@@ -45,13 +47,37 @@
 
         .graphics
             display: grid
-            gap: 1rem
+            gap: 2rem
             justify-content: center
-            .row
+            
+            .screen
+                width: 100%
+                height: 3rem
+                background: #0a1c3a
+                text-align: center
+                color: white
                 display: flex
-                flex-wrap: nowrap
+                justify-content: center
+                align-items: center
+                font-size: 1.75rem
+                font-weight: bold
+
+            .rows
+                display: grid
                 gap: 1rem
-                .seat
-                    aspect-ratio: 1/1
-                    background: #4BB543
-                    width: 4rem
+                width: 100%
+                overflow: auto
+                .row
+                    display: flex
+                    flex-wrap: nowrap
+                    flex-grow: 1
+                    flex-shrink: 1
+                    gap: 1rem
+                    .seat
+                        aspect-ratio: 1/1
+                        background: #4BB543
+                        width: 2rem
+                    .corridor
+                        aspect-ratio: 1/1
+                        background: #182535
+                        width: 2rem

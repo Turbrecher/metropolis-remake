@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, ViewEncapsulation } from '@angular/core';
 import { InputComponent } from "../../../../shared/components/formComponents/input/input.component";
 import { ButtonComponent } from "../../../../shared/components/formComponents/button/button.component";
 import { Validators, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RoomService } from '../../../services/room.service';
 import { Scroll } from '../../../../shared/Utilities/Scroll';
 import { Seat } from '../../../../shared/models/seat';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-room',
@@ -16,10 +17,12 @@ import { Seat } from '../../../../shared/models/seat';
 })
 export class RoomComponent {
 
-
+  private mouseClicked = false
+  private moreThanOneTime = false
   seats?: Array<Seat>
   seatingRows: Array<number> = []
   seatingCols: Array<number> = []
+  @ViewChild('rowsHtml', { static: true }) rowsHtml!: ElementRef<HTMLElement>
 
 
   public editRoomForm = this.fb.group({
@@ -34,7 +37,10 @@ export class RoomComponent {
   }
 
   ngOnInit() {
+
+
     Scroll.scrollUp()
+    this.moreThanOneTime = false
 
 
     this.roomService.getRoom(this.activatedRoute.snapshot.params['id']).subscribe({
@@ -53,9 +59,26 @@ export class RoomComponent {
           this.seatingCols.push(index)
 
         }
+
       },
       error: (err) => {
         console.log(err)
+
+      }
+    })
+
+  }
+
+
+  changeSeatType(node: Element) {
+
+    node.addEventListener('click', () => {
+      if (node.className == "seat") {
+        node.className = "corridor"
+      } else if (node.className == "seat ng-star-inserted") {
+        node.className = "corridor"
+      } else {
+        node.className = "seat"
 
       }
     })
@@ -82,6 +105,44 @@ export class RoomComponent {
 
       }
     })
+  }
+
+
+  ngAfterContentChecked() {
+
+    if (this.moreThanOneTime) {
+      return
+    }
+
+
+    
+    
+    
+    let seats = document.querySelectorAll('.seat')
+    let corridors = document.querySelectorAll('.corridor')
+    let allTypesOfSeats: Array<Element> = [];
+
+    if (seats.length <= 0 && corridors.length <= 0) {
+      return
+    }
+
+    seats.forEach((node) => {
+      allTypesOfSeats.push(node)
+    })
+    corridors.forEach((node) => {
+      allTypesOfSeats.push(node)
+    })
+
+    allTypesOfSeats.forEach((node) => {
+
+      this.changeSeatType(node)
+
+
+    })
+
+    this.moreThanOneTime = true
+
+
   }
 
 

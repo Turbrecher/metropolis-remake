@@ -25,33 +25,45 @@
 
 
     <article class="seats">
-        <h2 class="yellow">Sillones</h2>
+        <h2 class="yellow">SILLONES</h2>
 
 
 
         <!-- Seat graphics -->
         <section class="graphics">
-            @for (row of seatingRows; track $index) {
-            <div class="row">
-                @for (col of seatingCols; track $index) {
-                <div class="seat"></div>
+
+            <div class="screen">PANTALLA</div>
+
+            <!-- append all seats -->
+            <div #rowsHtml class="rows">
+                @for (row of seatingRows; track $index) {
+                    <div class="row">
+                        @for (col of seatingCols; track $index) {
+
+                            @for (seat of seats; track $index) {
+                                @if(seat.row == row && seat.col == col){
+                                    <div id="{{seat.id}}" class="{{seat.type}}"></div>
+                                }
+                            }
+
+                        }
+                    </div>
                 }
             </div>
-            }
         </section>
 
 
         <!-- Color legend -->
         <section class="legend">
 
-            <article class="seat">
+            <article class="typeseat">
                 <div class="greenBox"></div>
-                <h2>Seat</h2>
+                <h2>Sillón</h2>
             </article>
 
-            <article class="corridor">
+            <article class="typecorridor">
                 <div class="blueBox"></div>
-                <h2>Corridor</h2>
+                <h2>Pasillo</h2>
             </article>
 
         </section>
