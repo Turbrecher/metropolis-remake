@@ -38,7 +38,7 @@ export class AuthService {
   }
 
 
-  editProfile(profileData: FormData){
+  editProfile(profileData: FormData) {
     let headers = { "Authorization": "Bearer " + this.cookieService.get("token") }
 
     return this.http.post<User>(Url.api + "profile", profileData, { headers })
@@ -49,6 +49,13 @@ export class AuthService {
     let headers = { "Authorization": "Bearer " + this.cookieService.get("token") }
 
     return this.http.post<any>(Url.api + "logout", {}, { headers })
+  }
+
+
+  downloadTicket(id?: string) {
+    let headers = { "Authorization": "Bearer " + this.cookieService.get("token") }
+
+    return this.http.get<any>(Url.api + "downloadtickets/" + id, { headers })
   }
 
 

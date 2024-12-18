@@ -6,6 +6,8 @@ import { Scroll } from '../../../shared/Utilities/Scroll';
 import { TicketComponent } from "../../components/ticket/ticket.component";
 import { AuthService } from '../../services/auth.service';
 import { Ticket } from '../../../shared/models/ticket';
+import { Url } from '../../../shared/Utilities/Url';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -22,17 +24,20 @@ export class ProfileComponent {
     "surname": ["", Validators.required],
     "username": ["", Validators.required],
     "email": ["", Validators.required],
-    "password": ["",[Validators.pattern("^[A-Za-z0-9?¿_-]{5,50}|^$/")]],
+    "password": ["", [Validators.pattern("^[A-Za-z0-9?¿_-]{5,50}|^$/")]],
   });
 
-  serverError:string = ""
+  serverError: string = ""
   tickets!: Array<Ticket>
+  ticketUrl: string = Url.ticketApi;
+  header = "Authorization=Bearer " + this.cookieService.get('token')
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private cookieService: CookieService) {
 
   }
 
   ngOnInit() {
+
     this.serverError = ""
     Scroll.scrollUp()
 
@@ -76,6 +81,13 @@ export class ProfileComponent {
       error: (err) => {
         this.serverError = "Ha ocurrido un error en el servidor, no se ha podido actualizar tu perfil."
       }
+    })
+  }
+
+
+  download(id?: string) {
+    this.authService.downloadTicket(id).subscribe((response) => {
+      console.log(response)
     })
   }
 
