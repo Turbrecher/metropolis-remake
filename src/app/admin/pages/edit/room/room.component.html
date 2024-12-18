@@ -18,6 +18,7 @@
                 inputPlaceholder="Inserte el número de columnas" formControlName="cols" />
 
             <app-button (click)="editRoom($event)" [valid]="editRoomForm.valid" buttonValue="Editar sala" />
+            <app-button extraClass="delete" (click)="deleteRoom($event)"  buttonValue="Eliminar sala" />
 
         </form>
 
@@ -28,29 +29,8 @@
         <h2 class="yellow">SILLONES</h2>
 
 
-
-        <!-- Seat graphics -->
-        <section class="graphics">
-
-            <div class="screen">PANTALLA</div>
-
-            <!-- append all seats -->
-            <div #rowsHtml class="rows">
-                @for (row of seatingRows; track $index) {
-                    <div class="row">
-                        @for (col of seatingCols; track $index) {
-
-                            @for (seat of seats; track $index) {
-                                @if(seat.row == row && seat.col == col){
-                                    <div id="{{seat.id}}" class="{{seat.type}}"></div>
-                                }
-                            }
-
-                        }
-                    </div>
-                }
-            </div>
-        </section>
+        
+        <app-room-graphics [seatingRows]="seatingRows" [seatingCols]="seatingCols" [seats]="seats"/>
 
 
         <!-- Color legend -->

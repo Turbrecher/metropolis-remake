@@ -33,4 +33,11 @@ export class RoomService {
 
     return this.http.post<any>(Url.api + 'rooms/' + id, formData, { headers })
   }
+
+
+  deleteRoom(id: number) {
+    let headers = { 'Authorization': 'Bearer ' + this.cookieService.get('token') }
+
+    return this.http.delete<any>(Url.api + 'rooms/' + id, { headers })
+  }
 }

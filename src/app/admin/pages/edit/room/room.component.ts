@@ -7,22 +7,23 @@ import { RoomService } from '../../../services/room.service';
 import { Scroll } from '../../../../shared/Utilities/Scroll';
 import { Seat } from '../../../../shared/models/seat';
 import { DOCUMENT } from '@angular/common';
+import { SeatGraphicComponent } from '../../../../shared/components/roomTools/seat-graphic/seat-graphic.component';
+import { RoomGraphicsComponent } from '../../../../shared/components/roomTools/room-graphics/room-graphics.component';
 
 @Component({
   selector: 'app-room',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, RoomGraphicsComponent],
   templateUrl: './room.component.html',
   styleUrl: './room.component.sass'
 })
 export class RoomComponent {
 
-  private mouseClicked = false
-  private moreThanOneTime = false
   seats?: Array<Seat>
   seatingRows: Array<number> = []
   seatingCols: Array<number> = []
   @ViewChild('rowsHtml', { static: true }) rowsHtml!: ElementRef<HTMLElement>
+  @ViewChild(RoomGraphicsComponent) roomGraphics!: RoomGraphicsComponent
 
 
   public editRoomForm = this.fb.group({
@@ -40,7 +41,6 @@ export class RoomComponent {
 
 
     Scroll.scrollUp()
-    this.moreThanOneTime = false
 
 
     this.roomService.getRoom(this.activatedRoute.snapshot.params['id']).subscribe({
@@ -69,31 +69,40 @@ export class RoomComponent {
 
   }
 
+  deleteRoom(event: Event) {
+    event.preventDefault()
 
-  changeSeatType(node: Element) {
+    if (!confirm("¿Estás seguro/a de querer eliminar esta sala?")) {
+      return
+    }
 
-    node.addEventListener('click', () => {
-      if (node.className == "seat") {
-        node.className = "corridor"
-      } else if (node.className == "seat ng-star-inserted") {
-        node.className = "corridor"
-      } else {
-        node.className = "seat"
+    this.roomService.deleteRoom(this.activatedRoute.snapshot.params['id']).subscribe({
+      next: (response) => {
+        this.router.navigate(['/admin/rooms'])
+      },
+      error: (err) => {
+        console.log(err)
 
       }
     })
+
   }
 
   editRoom(event: Event) {
+    event.preventDefault()
+
+    let allSeats: Array<Seat> = this.roomGraphics.getAllSeats()
+
+
 
     let roomData = new FormData()
     roomData.append('name', this.name.value)
     roomData.append('rows', this.rows.value)
     roomData.append('cols', this.cols.value)
+    roomData.append('allSeats', JSON.stringify(allSeats))
+
+    //roomData.append('allSeats', JSON.stringify(allSeats))
     roomData.append('_method', 'PUT')
-
-
-
 
 
     this.roomService.editRoom(roomData, this.activatedRoute.snapshot.params['id']).subscribe({
@@ -106,46 +115,6 @@ export class RoomComponent {
       }
     })
   }
-
-
-  ngAfterContentChecked() {
-
-    if (this.moreThanOneTime) {
-      return
-    }
-
-
-    
-    
-    
-    let seats = document.querySelectorAll('.seat')
-    let corridors = document.querySelectorAll('.corridor')
-    let allTypesOfSeats: Array<Element> = [];
-
-    if (seats.length <= 0 && corridors.length <= 0) {
-      return
-    }
-
-    seats.forEach((node) => {
-      allTypesOfSeats.push(node)
-    })
-    corridors.forEach((node) => {
-      allTypesOfSeats.push(node)
-    })
-
-    allTypesOfSeats.forEach((node) => {
-
-      this.changeSeatType(node)
-
-
-    })
-
-    this.moreThanOneTime = true
-
-
-  }
-
-
 
   get name() {
     return this.editRoomForm.get('name') as FormControl

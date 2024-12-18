@@ -1,0 +1,23 @@
+<!-- Seat graphics -->
+<section class="graphics">
+
+    <div class="screen">PANTALLA</div>
+
+    <!-- append all seats -->
+    <div #rowsHtml class="rows">
+        @for (row of seatingRows; track $index) {
+            <div class="row">
+                @for (col of seatingCols; track $index) {
+
+                    @for (seat of seats; track $index) {
+                        @if(seat.row == row && seat.col == col){
+                            <app-seat-graphic [seat]="seat"/>
+                        }
+                    }
+
+                }
+            </div>
+        }
+    </div>
+    
+</section>
