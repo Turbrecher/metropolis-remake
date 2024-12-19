@@ -6,18 +6,22 @@
     <!-- append all seats -->
     <div #rowsHtml class="rows">
         @for (row of seatingRows; track $index) {
-            <div class="row">
-                @for (col of seatingCols; track $index) {
+        <div class="row">
+            @for (col of seatingCols; track $index) {
 
-                    @for (seat of seats; track $index) {
-                        @if(seat.row == row && seat.col == col){
-                            <app-seat-graphic [seat]="seat"/>
-                        }
+                @for (seat of seats; track $index) {
+
+                    @if(seat.row == row && seat.col == col){
+
+                    <app-seat-graphic [publicSelector]="publicSelector" [seat]="seat" [movieSession]="movieSession" />
+
                     }
-
+                
                 }
-            </div>
+
+            }
+        </div>
         }
     </div>
-    
+
 </section>

@@ -1,0 +1,13 @@
+<article class="payment">
+    <h1 class="yellow">Pago de la entrada</h1>
+    <section class="form">
+        <form [formGroup]="paymentForm">
+            <app-input formControlName="cardNumber" label="Número de tarjeta" inputType="text" [valid]="cardNumber.valid||cardNumber.pristine" inputPlaceholder="Inserte su número de tarjeta"/>
+            <app-input formControlName="expirationDate" label="Fecha de expiración" inputType="text" [valid]="expirationDate.valid||expirationDate.pristine" inputPlaceholder="Inserte la fecha de expiración de su tarjeta"/>
+            <app-input formControlName="name" label="Nombre" inputType="email" [valid]="name.valid||name.pristine" inputPlaceholder="Inserte su nombre"/>
+            <app-input formControlName="cvv" label="CVV" inputType="text" [valid]="cvv.valid||cvv.pristine" inputPlaceholder="Inserte su CVV"/>
+            <app-button (click)="pay($event)" [valid]="paymentForm.valid" buttonValue="Pagar entrada"/>
+            <label class="yellow">Este formulario de pago no tiene ningún tipo de funcionalidad todavía.<br><br> Por ahora puede clicar en pagar sin rellenar ningún campo.</label>
+        </form>
+    </section>
+</article>

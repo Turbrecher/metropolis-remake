@@ -5,6 +5,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { MovieViewComponent } from './pages/movie-view/movie-view.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SeatSelectorComponent } from './pages/seat-selector/seat-selector.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,15 @@ const routes: Routes = [
   {
     path: "bilboard/movie/:id",
     component: MovieViewComponent
+  },
+
+  {
+    path: "bilboard/movie/:movie_id/moviesession/:movie_session_id",
+    component: SeatSelectorComponent
+  },
+  {
+    path: "bilboard/moviesession/:movie_session_id/payment/:seat_id",
+    component: PaymentComponent
   },
 
   {

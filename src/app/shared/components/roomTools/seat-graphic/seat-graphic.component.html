@@ -1,4 +1,34 @@
-<article id="{{seat.id}}" class="{{seat.type}}">
-    <section style="display: none;" class="row">{{seat.row}}</section>
-    <section style="display: none;" class="col">{{seat.col}}</section>
-</article>
+@if(seat.type=="seat"){
+
+
+    @if(publicSelector){
+        @if(isSeatOcupied() == true){
+            <article id="{{seat.id}}" class="occupied">
+                <section style="display: none;" class="row">{{seat.row}}</section>
+                <section style="display: none;" class="col">{{seat.col}}</section>
+            </article>
+    
+        } @else{
+            <a href="/bilboard/moviesession/{{movieSession?.id}}/payment/{{seat?.id}}">
+                <article id="{{seat.id}}" class="{{seat.type}}">
+                    <section style="display: none;" class="row">{{seat.row}}</section>
+                    <section style="display: none;" class="col">{{seat.col}}</section>
+                </article>
+            </a>
+        }
+    }@else {
+        <article id="{{seat.id}}" class="{{seat.type}}">
+            <section style="display: none;" class="row">{{seat.row}}</section>
+            <section style="display: none;" class="col">{{seat.col}}</section>
+        </article>
+    }
+
+
+    
+
+}@else {
+    <article id="{{seat.id}}" class="{{seat.type}}">
+        <section style="display: none;" class="row">{{seat.row}}</section>
+        <section style="display: none;" class="col">{{seat.col}}</section>
+    </article>
+}

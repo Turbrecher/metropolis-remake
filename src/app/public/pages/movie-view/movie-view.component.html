@@ -63,7 +63,9 @@
 
     <section class="movieSessions">
         @for (movieSession of movieSessions; track $index) {
-        <app-movie-session hour="{{movieSession.time}}" room="{{movieSession.room?.name}}" />
+        <a routerLink="/bilboard/movie/{{this.movieId}}/moviesession/{{movieSession.id}}">
+            <app-movie-session hour="{{movieSession.time}}" room="{{movieSession.room?.name}}" />
+        </a>
         }
 
     </section>

@@ -101,7 +101,6 @@ export class RoomComponent {
     roomData.append('cols', this.cols.value)
     roomData.append('allSeats', JSON.stringify(allSeats))
 
-    //roomData.append('allSeats', JSON.stringify(allSeats))
     roomData.append('_method', 'PUT')
 
 

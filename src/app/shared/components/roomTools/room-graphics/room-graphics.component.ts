@@ -1,6 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Seat } from '../../../models/seat';
 import { SeatGraphicComponent } from "../seat-graphic/seat-graphic.component";
+import { MovieSession } from '../../../models/movie-session';
 
 @Component({
   selector: 'app-room-graphics',
@@ -14,6 +15,8 @@ export class RoomGraphicsComponent {
   @Input() seatingRows !: Array<number>
   @Input() seatingCols !: Array<number>
   @Input() seats !: Array<Seat> | undefined
+  @Input() publicSelector: boolean = false
+  @Input() movieSession?: MovieSession
   private moreThanOneTime = false
 
 
@@ -103,7 +106,6 @@ export class RoomGraphicsComponent {
 
     //Assign an on click event to all seats and corridors.
     allTypesOfSeats.forEach((node) => {
-
 
       this.changeSeatType(node)
 
