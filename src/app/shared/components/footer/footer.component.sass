@@ -53,3 +53,41 @@ footer
     .copyright
         .text
             text-align: center
+
+
+@import 'variables'
+@media (width<$lg)
+    footer
+        z-index: 0
+        .logo
+            width: 100%
+
+        .politics
+            flex-direction: column
+            gap: 1rem
+            a
+                font-size: 1.5rem
+                text-align: center
+
+        .socialNetworks
+            border-bottom: none
+            display: grid
+            grid-template-columns: auto auto
+            gap: 3rem
+            padding: 0
+            width: 100%
+            justify-content: center
+            a
+                width: 60%
+                margin: 0 auto
+
+                &:hover
+                    top: -1rem
+
+                img
+                    width: 100%
+                    border-radius: 100%
+
+        .copyright
+            .text
+                text-align: center

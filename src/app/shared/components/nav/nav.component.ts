@@ -17,6 +17,8 @@ export class NavComponent {
 
   @ViewChild(LoginModalComponent) loginDialog!: LoginModalComponent
   @ViewChild(RegisterModalComponent) registerDialog!: RegisterModalComponent
+  @ViewChild('navMenuButton') navMenuButton!: ElementRef<HTMLElement>
+  @ViewChild('links') links!: ElementRef<HTMLElement>
   isAuthenticated = false
   isAdmin = false
 
@@ -73,9 +75,18 @@ export class NavComponent {
         }
       }
     )
+  }
 
 
+  openMenu() {
 
+
+    if (this.links.nativeElement.className == 'hidden') {
+      this.links.nativeElement.className = ('links')
+
+    } else if (this.links.nativeElement.className == 'links') {
+      this.links.nativeElement.className = ('hidden')
+    }
   }
 
 

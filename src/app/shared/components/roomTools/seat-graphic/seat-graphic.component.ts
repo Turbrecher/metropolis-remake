@@ -14,18 +14,19 @@ export class SeatGraphicComponent {
   @Input() seat !: Seat
   @Input() movieSession?: MovieSession
   @Input() publicSelector: boolean = false
+  isSeatOccupied !: boolean
 
 
   ngOnInit() {
-
-  }
+    this.isSeatOccupied = this.getSeatOccupied()
+  } 
 
   constructor() {
 
   }
 
 
-  isSeatOcupied() {
+  getSeatOccupied() {
     let occupied = false
 
     this.movieSession?.tickets?.forEach(

@@ -1,8 +1,7 @@
-
+.littleScreens
+    display: none
     
-    
-nav
-
+.bigScreens
     background: #051122
     display: flex
     justify-content: center
@@ -43,4 +42,44 @@ nav
             &:hover
                 scale: 110%
 
+
+@keyframes linksOpening
+    0%
+        opacity: 0
+        padding-block: 0rem
+    100%
+        padding-block: 2rem
+        opacity: 1
+
+@import 'variables'
+@media (width < $lg)
+    .bigScreens
+        display: none
+    .littleScreens
+        z-index: 1
+        background: #0a1c3a
+        display: block
+        position: sticky
+        top: 0
+        left: 0
+        .navMenuButton
+            width: 5rem
+            overflow: hidden
+            aspect-ratio: 1/1
+            img
+                width: 100%
+
+
+        .links
+            animation: linksOpening 1s
+            display: grid
+            padding: 1rem
+            gap: 2rem
+            block-size: auto
+            block-size: calc-size(auto)
+            padding-block: 2rem
+            a
+                font-size: 2rem
+                img
+                    width: 2rem
 

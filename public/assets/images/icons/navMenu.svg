@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<title>barra-de-menus</title>
+	<defs>
+		<image  width="370" height="310" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAE2AQMAAABGI4swAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA////pdmf3QAAAAJ0Uk5TAP9bkSK1AAABRUlEQVR4nO2YS27DMAxEyTRAs2tv0NwkvVmSm7U3qW/Q7hIgP8leh+YsVMjAG8C7t5BIShqPm9nuy1Ly6fNbDrdhO/Jvv0n+uh757HKmxZjtD1n+eCh8evnjBtxeLmn+773w6e2OG3b7+Enz91Xh8+Wp1XGhPLVAbvc8bt+fLpSzFlTmhfLXBvjrSeDPG5kX2lsb7EJ7a4NlXhmHMhDNeWXcysA155VxLgMNDw8v8L2d997uw9b3v/oetX4f1fe6tX9Q/Yzsl1Q/pvo91U+qflX1w6rflv28+r+g/o9kO1CqP/GK4OHh4eHh4eHh53ny5ycayJ9jkT/HIn+eEfkzPPyS+d7Oe2/3IflzIPLnUOTPocif4eHh4eHh4eGXyZM/P9FA/hyL/DkW+fOMyJ/h4ZfM93bee7sPyZ8DkT+HIn8O9R/58wNkOW3Gi2WzWwAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="71" y="101"/>
+</svg>

@@ -1,4 +1,4 @@
-<nav>
+<nav class="bigScreens">
 
     <a routerLink="bilboard" routerLinkActive="active">Cartelera</a>
     <a routerLink="products" routerLinkActive="active">Productos</a>
@@ -6,43 +6,86 @@
 
 
     @if (!isAuthenticated) {
+    <a class="iconContainer" (click)="openRegisterModal()">
+        <img src="images/icons/newUser.svg" alt="">
+    </a>
+
+    <a class="iconContainer" (click)="openLoginModal()">
+        <img src="images/icons/login.svg" alt="">
+    </a>
+
+
+
+
+    }@else {
+    <a routerLinkActive="active" routerLink="profile" class="iconContainer">
+        <img src="images/icons/profile.svg" alt="">
+    </a>
+
+
+    @if(isAdmin){
+    <a routerLinkActive="active" routerLink="admin" class="iconContainer">
+        <img src="images/icons/admin.svg" alt="">
+    </a>
+    }
+
+    <a (click)="logout()" class="iconContainer">
+        <img src="images/icons/logout.svg" alt="">
+    </a>
+    }
+
+
+    <app-login-modal close />
+    <app-register-modal close />
+
+</nav>
+
+
+
+<nav class="littleScreens">
+
+    <div (click)="openMenu()" #navMenuButton class="navMenuButton">
+        <img src="images/icons/navMenu.svg" alt="">
+    </div>
+
+    <section #links class="hidden">
+        <a routerLink="bilboard" routerLinkActive="active">Cartelera</a>
+        <a routerLink="products" routerLinkActive="active">Productos</a>
+        <a routerLink="contact" routerLinkActive="active">Contacto</a>
+
+
+        @if (!isAuthenticated) {
         <a class="iconContainer" (click)="openRegisterModal()">
             <img src="images/icons/newUser.svg" alt="">
         </a>
-    
+
         <a class="iconContainer" (click)="openLoginModal()">
             <img src="images/icons/login.svg" alt="">
         </a>
 
-        
 
 
-    }@else {
+
+        }@else {
         <a routerLinkActive="active" routerLink="profile" class="iconContainer">
             <img src="images/icons/profile.svg" alt="">
         </a>
 
 
         @if(isAdmin){
-            <a routerLinkActive="active" routerLink="admin" class="iconContainer">
-                <img src="images/icons/admin.svg" alt="">
-            </a>
+        <a routerLinkActive="active" routerLink="admin" class="iconContainer">
+            <img src="images/icons/admin.svg" alt="">
+        </a>
         }
 
         <a (click)="logout()" class="iconContainer">
             <img src="images/icons/logout.svg" alt="">
         </a>
-    }
+        }
+    </section>
 
 
-   
-
-    
-
-    
-    
-
-    <app-login-modal close/>
-    <app-register-modal close/>
+    <app-login-modal close />
+    <app-register-modal close />
 
 </nav>
